@@ -1,0 +1,10 @@
+import random
+lst = ['robot'] * 10
+lst += ['human'] * 10
+random.shuffle(lst)
+data = pd.DataFrame({'whoAmI':lst})
+unique_values = data['whoAmI'].unique()
+for value in unique_values:
+  data.loc[data['whoAmI'] == value, value] = '1';
+  data.loc[data['whoAmI'] != value, value] = '0';
+data.head()
